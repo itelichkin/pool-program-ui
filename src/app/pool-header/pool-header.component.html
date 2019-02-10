@@ -1,0 +1,55 @@
+<mat-toolbar color="primary">
+  <div class="nav" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+    <div fxFlex="40px" fxFlex.xs="40px" fxFlex.sm="40px">
+      <button color="accent" mat-mini-fab (click)="goHome()">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+    <div fxFlex="65">
+      <div fxHide.md fxHide.sm fxHide.xs fxLayout="row" fxLayoutAlign="center center" fxFlex="100%">
+        <ng-container *ngFor="let button of buttons">
+          <button mat-button
+                  [routerLink]="button.path"
+                  routerLinkActive="active-link"
+                  [routerLinkActiveOptions]="{exact: false}">
+            {{button.name?.toUpperCase()}}
+          </button>
+        </ng-container>
+      </div>
+      <div fxFlex class="fxClass-all" fxLayout="row" fxHide.lg fxHide.xl fxLayoutAlign="start center">
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-toggle-button">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="main-menu-items">
+          <ng-container *ngFor="let button of buttons">
+            <button mat-menu-item
+                    [routerLink]="button.path"
+                    routerLinkActive="active-link"
+                    [routerLinkActiveOptions]="{exact: false}">
+              {{button.name}}
+            </button>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="settings-container">
+      <section>
+        <button mat-icon-button
+                (click)="goToAdmin()"
+                matTooltip="Administration">
+          <mat-icon>build</mat-icon>
+        </button>
+      </section>
+      <section>
+        <button mat-raised-button
+                fxLayout="row"
+                color="accent"
+                (click)="logOut()"
+                fxLayoutAlign="start center">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log out</span>
+        </button>
+      </section>
+    </div>
+  </div>
+</mat-toolbar>

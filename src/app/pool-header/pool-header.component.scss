@@ -1,0 +1,16 @@
+@import "../../custom_theme";
+
+mat-toolbar {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  color: #fff;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  z-index: 10;
+  width: 100%;
+
+  .active-link {
+    border-bottom: 2px solid $app-accent-color;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
